@@ -1,26 +1,38 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="p-d-flex p-flex-column p-jc-center">
+    <div class="p-mr-2" style="min-height: 90vh">
+      <DORemark msg="Generate DO Remark" />
+    </div>
+    <div class="p-mt-2">
+      <div class="p-text-center">
+        <span> Pollux Dev &copy; {{ year }} </span>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import DORemark from './components/DORemark.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    DORemark
+  },
+  computed: {
+    year() {
+      const date = new Date();
+      const year = date.getFullYear();
+      return year;
+    }
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+html,
+body {
+  padding: 0px;
+  margin: 0px;
 }
 </style>
